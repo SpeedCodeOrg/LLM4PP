@@ -1,0 +1,16 @@
+# local
+.vscode
+
+# python
+*.pyc
+__pycache__
+.env
+
+# cpp
+*.out
+*.exe
+a.out
+*.o
+
+# editor buffers
+*~
