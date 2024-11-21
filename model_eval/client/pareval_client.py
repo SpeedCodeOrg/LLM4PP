@@ -72,18 +72,14 @@ def pareval_submit(problem_category: str, problem_unique_id: str, optimized_code
         return output_dict
 
 class ParEvalProblemLoader(ProblemLoader):
-    def __init__(self, data_path : str, launch_configs_path: str = "ParEval/drivers/launch-configs-speedcode.json"):
+    def __init__(self, data_path : str):
         # Look at the launch-configs-speedcode.json file to get the correct format
-        with open(launch_configs_path) as f:
-            launch_configs_dict = json.load(f)
-            benchmark_num_cpus = int(launch_configs_dict["omp"]["params"][0]["num_threads"])
-
         self.problem_list = []
         with open(data_path) as f:
             lst_problems = json.load(f)
             
             for problem_dict in lst_problems:
-                llm4pp_problem = LLM4PP_Problem(problem_id=problem_dict["name"], source_code=problem_dict["src_code"], category=problem_dict["problem_type"], header=problem_dict["prompt"], target_benchmark = BenchmarkDescription(num_cpus=benchmark_num_cpus))
+                llm4pp_problem = LLM4PP_Problem(problem_id=problem_dict["name"], source_code=problem_dict["src_code"], category=problem_dict["problem_type"], header=problem_dict["prompt"], target_benchmark = BenchmarkDescription(num_cpus=8))
 
                 self.problem_list.append(llm4pp_problem)
 
