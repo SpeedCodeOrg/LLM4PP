@@ -61,7 +61,7 @@ def pareval_submit(problem_category: str, problem_unique_id: str, optimized_code
 
         output_dict["baseline_runtime"] = baseline_runtime
         # code did not compile or code did not run without errors
-        if run_info["runs"] is None:
+        if run_info["runs"] is None or run_info["runs"][0]["runtime"] is None:
             output_dict["optimized_runtime"] = baseline_runtime
         else:
             output_dict["optimized_runtime"] = float(run_info["runs"][0]["runtime"])

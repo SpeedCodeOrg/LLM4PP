@@ -107,9 +107,7 @@ class LLM4PP_Driver:
             problem_ids.add(x.problem_id)
         
         response_problem_ids : Set[str] = set()
-        print(problem_ids)
         for x in self.responses:
-            print(x.submission)
             assert x.submission.problem.problem_id in problem_ids
             assert x.submission.problem.problem_id not in response_problem_ids
             response_problem_ids.add(x.submission.problem.problem_id)

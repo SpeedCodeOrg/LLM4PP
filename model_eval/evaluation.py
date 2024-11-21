@@ -10,8 +10,12 @@ for problem in driver:
     optimized_code = problem.source_code
     submission = LLM4PP_Submission(problem=problem,
                                    submitted_code=optimized_code)
-    response = driver.submit(submission)
-    # print(response["stdout"])
+    try:
+        response = driver.submit(submission)
+    except Exception as e:
+        print(f"skipping problem due to exception: {e}")
+        print("--- ParEval driver stdout ---")
+        print(response["stdout"])
 
 driver.save_all_responses("./tmp-pareval-results.json")
 driver.evaluate()
