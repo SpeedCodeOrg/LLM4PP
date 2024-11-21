@@ -94,6 +94,7 @@ class LLM4PP_Driver:
         submission = LLM4PP_Submission.parse_obj(submission) # validate
         response = self.runner.submit(submission)
         self.responses.append(response)
+        return response
 
     def save_all_responses(self, filename):
         open(filename, 'w+').write(LLM4PP_SubmissionResponseList(responses=self.responses).json())
