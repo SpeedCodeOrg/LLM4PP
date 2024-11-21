@@ -1,7 +1,7 @@
 ## Setup
 
 ### Installation
-Create a conda environment.
+Create a conda environment. We tested on an environment with `python = 3.10.15`.
 * Install a `C++` compiler using the command: `conda install -c conda-forge cxx-compiler`.
 * Run `pip install -r requirements.txt`.
 
