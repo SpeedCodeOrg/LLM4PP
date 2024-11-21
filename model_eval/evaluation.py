@@ -15,7 +15,7 @@ for problem in driver:
     except Exception as e:
         print(f"skipping problem due to exception: {e}")
         print("--- ParEval driver stdout ---")
-        print(response["stdout"])
+        print(response.stdout)
 
 driver.save_all_responses("./tmp-pareval-results.json")
 driver.evaluate()
