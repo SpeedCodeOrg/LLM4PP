@@ -98,6 +98,8 @@ class ParEvalSubmissionRunner(SubmissionRunner):
                                          correct=result["is_valid"],\
                                          runtime=result["optimized_runtime"],\
                                          reference_runtime=result["baseline_runtime"],\
+                                         stdout=result["stdout"],\
+                                         stderr=result["stderr"],\
                                         )
 
 class ParEvalDriver(LLM4PP_Driver):

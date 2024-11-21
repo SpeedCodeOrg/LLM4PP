@@ -46,8 +46,9 @@ class LLM4PP_SubmissionResponse(BaseModel):
     correct : bool
     runtime : float
     reference_runtime : Optional[float] = None
-    # correct : bool
-    #runtimes : List[LLM4PP_SubmissionResult]
+    # used for debugging
+    stdout : Optional[str] = None
+    stderr : Optional[str] = None
 
 class LLM4PP_SubmissionResponseList(BaseModel):
     responses : List[LLM4PP_SubmissionResponse]
