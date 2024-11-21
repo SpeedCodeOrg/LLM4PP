@@ -2,3 +2,4 @@
 **.jsonl**
 **/CodeLlama-7b/**
 **/CodeLlama-7b.nemo
+**/__pycache__

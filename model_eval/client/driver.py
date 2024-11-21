@@ -149,7 +149,7 @@ class LLM4PP_Driver:
             all_statistics.total += 1
 
             if not x.correct:
-                logratio = 1.0
+                logratio = math.log(1.0)
             else:
                 all_statistics.total_correct += 1
                 category_statistics[problem_cat].total_correct += 1

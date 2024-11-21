@@ -1,4 +1,4 @@
-from typing import Annotated, Union, Optional, List
+from typing import Union, Optional, List
 from pydantic import BaseModel
 
 class BenchmarkDescription(BaseModel):
