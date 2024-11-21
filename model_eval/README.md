@@ -1,10 +1,17 @@
-## Setup ParEval
+## Setup
+
+### Installation
+Create a conda environment.
+* Install a `C++` compiler using the command: `conda install -c conda-forge cxx-compiler`.
+* Run `pip install -r requirements.txt`.
+
+### Setup ParEval
 To setup ParEval, execute the following command:
 ```
 cd ParEval/drivers && make
 ```
 
-This will compile the necessary files for ParEval's benchmarking code. To run ParEval, you will need a modern version of `g++`. Using conda to install it via the command: `conda install -c conda-forge cxx-compiler` should be sufficient.
+This will compile the necessary files for ParEval's benchmarking code.
 
 ## Run ParEval evaluation
 In the `evaluation.py` file, you will see a `get_pareval_driver()` command which returns a `ParEvalDriver` object which takes in code for a ParEval problem and executes it using the ParEval benchmarking code and returns the result. 
