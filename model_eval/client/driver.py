@@ -128,12 +128,13 @@ class LLM4PP_Driver:
             total : int
             total_correct : int
             logsum : float
+            total_compiled : int
 
 
 
 
         category_statistics = dict()
-        all_statistics = statistics(addone=False, total=0, total_correct=0, logsum=0)
+        all_statistics = statistics(addone=False, total=0, total_correct=0, logsum=0, total_compiled=0)
 
         for x in self.responses:
             problem_id = x.submission.problem.problem_id
@@ -142,7 +143,8 @@ class LLM4PP_Driver:
                 category_statistics[problem_cat] = statistics(addone=False,\
                                                               total=0,\
                                                               total_correct=0,\
-                                                              logsum=0)
+                                                              logsum=0,\
+                                                              total_compiled=0)
 
             category_statistics[problem_cat].total += 1
             all_statistics.total += 1
@@ -154,17 +156,23 @@ class LLM4PP_Driver:
                 category_statistics[problem_cat].total_correct += 1
                 logratio = math.log(max(1.0,x.reference_runtime / x.runtime))
 
+            if x.compiled:
+                category_statistics[problem_cat].total_compiled += 1
+                all_statistics.total_compiled += 1
+
             category_statistics[problem_cat].logsum += logratio
             all_statistics.logsum += logratio
 
         table = PrettyTable()
-        table.field_names = ["category", "correctness", "geomean speedup"]
+        table.field_names = ["category", "% compiled", "correctness", "geomean speedup"]
         table.float_format = '.2'
         for category in category_statistics.keys():
             table.add_row([category,\
+                       category_statistics[category].total_compiled / category_statistics[category].total,\
                        category_statistics[category].total_correct / category_statistics[category].total,\
                        math.exp(category_statistics[category].logsum/category_statistics[category].total)])
         table.add_row(["all",\
+                   all_statistics.total_compiled / all_statistics.total,\
                    all_statistics.total_correct / all_statistics.total,\
                    math.exp(all_statistics.logsum/all_statistics.total)])
         print(table)
