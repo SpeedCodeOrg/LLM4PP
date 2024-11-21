@@ -23,7 +23,7 @@ def create_generation_dict(problem_category: str, problem_unique_id: str, optimi
 def run_driver(gen_file: str, problem_sizes_file: str = "problem-sizes.json", run_timeout: int = 300, launch_configs: str = "launch-configs-speedcode.json") -> str:
     # delete set to False as need this file in another function
     with tempfile.NamedTemporaryFile(suffix=".json") as output_f:
-        args = f"python run-all.py {gen_file} -o {output_f.name} --problem-sizes {problem_sizes_file} --yes-to-all --run-timeout {run_timeout} --launch-configs {launch_configs} --code_opt True"
+        args = f"python run-all.py {gen_file} -o {output_f.name} --yes-to-all --problem-sizes {problem_sizes_file} --run-timeout {run_timeout} --launch-configs {launch_configs} --code_opt True"
 
         subprocess_args = shlex.split(args)
         proc = subprocess.run(subprocess_args, cwd="ParEval/drivers", capture_output=True, text=True)
@@ -72,7 +72,12 @@ def pareval_submit(problem_category: str, problem_unique_id: str, optimized_code
         return output_dict
 
 class ParEvalProblemLoader(ProblemLoader):
-    def __init__(self, data_path : str, benchmark_num_cpus=8):
+    def __init__(self, data_path : str, launch_configs_path: str = "ParEval/drivers/launch-configs-speedcode.json"):
+        # Look at the launch-configs-speedcode.json file to get the correct format
+        with open(launch_configs_path) as f:
+            launch_configs_dict = json.load(f)
+            benchmark_num_cpus = int(launch_configs_dict["omp"]["params"][0]["num_threads"])
+
         self.problem_list = []
         with open(data_path) as f:
             lst_problems = json.load(f)
