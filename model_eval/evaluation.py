@@ -6,11 +6,12 @@ driver = ParEvalDriver()
 for problem in driver:
     problem : LLM4PP_Problem
 
-    # do something to optimize the code.
-    modified_source_code = problem.source_code
+    # TODO: do something to optimize the code.
+    optimized_code = problem.source_code
     submission = LLM4PP_Submission(problem=problem,
-                                   submitted_code=modified_source_code)
+                                   submitted_code=optimized_code)
     response = driver.submit(submission)
+    # print(response["stdout"])
 
 driver.save_all_responses("./tmp-pareval-results.json")
 driver.evaluate()
