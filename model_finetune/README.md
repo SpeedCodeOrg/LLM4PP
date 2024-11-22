@@ -11,6 +11,8 @@ Then, install all of the necessary libraries by running:
 pip install -r requirements.txt
 ```
 
+The versions of these libraries have been tested to work and may not be compatible with the ones installed by the libraries used in model evaluation. While it may be possible to use the same environment to do both fine-tuning and evaluation, it is not recommended.
+
 ## Dataset
 The sample finetuning code assumes the dataset follows the format described [here](https://huggingface.co/datasets/speedcode/LLM4PP_dataset). We also provide a sample dataset based on Leetcode problems at that link.
 
