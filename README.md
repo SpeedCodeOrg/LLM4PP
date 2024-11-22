@@ -63,6 +63,11 @@ See this [README](model_finetune/README.md) for how to run a finetuning script o
 See this [README](model_eval/README.md) for how to run a sample evaluation script on closed-source LLMs from OpenAI.
 
 ## Submission Guidelines
+For each phase, submit a python file similar to `model_eval/evaluation.py` which is described in more detail [README](model_eval/README.md). If using open-source models, please also upload them to HuggingFace and make them public.
+
+For the first phase of using closed-source LLMs, please make sure that the costs incurred by running the script are reasonable.
+
+For the second phase of using open-source LLMs, please make sure that the code can be run on a single reasonably-sized GPU.
 
 ## References
 1. [Gpt-4 technical report](https://arxiv.org/abs/2303.08774)
