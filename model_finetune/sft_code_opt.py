@@ -95,7 +95,7 @@ def train_tokenize_function(data, tokenizer, add_eos_token=True, clean_code=Fals
     return tokenized_full_prompt
 
 def get_dataset(data_path: str, tokenizer: transformers.PreTrainedTokenizer):
-    train_dataset = load_dataset("json", data_files=data_path, split="train")
+    train_dataset = load_dataset(data_path, split="train")
 
     train_dataset = train_dataset.map(
         train_tokenize_function,
