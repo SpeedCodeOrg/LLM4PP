@@ -19,7 +19,9 @@ The versions of these libraries have been tested to work and may not be compatib
 The sample finetuning code assumes the dataset follows the format described [here](https://huggingface.co/datasets/speedcode/LLM4PP_dataset). We also provide a sample dataset based on Leetcode problems at that link.
 
 ## Running Supervised Fine-Tuning
-The sample code runs supervised fine-tuning (SFT). It is inspired by code from [PIE](https://github.com/LearningOpt/pie).
+The sample code runs supervised fine-tuning (SFT) using FSDP via `accelerate`. A sample config file is also provided, although you can adjust it for your own setting.
+
+Some of the fine-tuning code is taken from [PIE](https://github.com/LearningOpt/pie).
 
 To run the finetuning code for code optimization, an example command is:
 
