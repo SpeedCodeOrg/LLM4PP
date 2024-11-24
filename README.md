@@ -32,13 +32,18 @@ This shortage thus significantly impedes progress in LLM-based parallel code gen
 
 ## Objective
 The goal of this contest is to 
-(1) explore prompting strategies or develop new workflows to aid existing closed-source LLMs in optimizing code.
-(2) develop new fine-tuning strategies to aid existing open-source LLMs in optimizing code.
-(3) collect or generate code samples through new techniques to help improve an open-source LLM's ability to optimize code.
+(1) explore new prompting strategies or develop new workflows.
+(2) develop new LLM fine-tuning strategies.
+(3) collect or generate new code samples.
 
 <!--enrich the current parallel code dataset to a large-scale, high-quality open-source dataset, facilitating the development of more effective LLM-based parallel programming through fine-tuning. 
 Participants are asked to (1) collect or generate parallel code samples and (2) enhance the dataset quality through data cleaning and label generation techniques. 
 Participants' contributions will be evaluated based on the improvement their data brings to the fine-tuned LLM.-->
+
+## Problem Definition
+The task is code optimization. Given a piece of source code in C++, you are asked to optimize the code to make it run faster. We want to use LLMs to aid us in this task. The task can be tackled in two different ways.
+* Use a closed-source LLM such as one from OpenAI, and obtain the optimized code using the provided APIs.
+* Use an open-source LLM such as CodeLlama or Deepseek-Coder, and obtain the optimized code by running inference locally.
 
 ## Starting Toolkit
 To get started, participants are provided the starting toolkit, which is this github repository. It contains two directories.
@@ -65,9 +70,9 @@ See this [README](model_eval/README.md) for how to run a sample evaluation scrip
 ## Submission Guidelines
 For each phase, submit a python file similar to `model_eval/evaluation.py` which is described in more detail [README](model_eval/README.md). If using open-source models, please also upload them to HuggingFace and make them public.
 
-For the first phase of using closed-source LLMs, please make sure that the costs incurred by running the script are reasonable.
+For the first phase of using closed-source LLMs, please make sure that the costs incurred by running the script are reasonable. Specifics will be released at a later date.
 
-For the second phase of using open-source LLMs, please make sure that the code can be run on a single reasonably-sized GPU.
+For the second phase of using open-source LLMs, please make sure that the code can be run on a single reasonably-sized GPU. Specifics will be released at a later date.
 
 ## References
 1. [Gpt-4 technical report](https://arxiv.org/abs/2303.08774)
