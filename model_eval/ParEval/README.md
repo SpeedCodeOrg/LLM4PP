@@ -21,6 +21,8 @@ workflow is to use `generate/generate.py` to generate LLM outputs, run
 `drivers/run-all.py` to evaluate outputs, and `analysis/metrics.py` to
 post-process the results.
 
+<!---
+
 ## Setup and Installation
 
 A couple core systems software are assumed to be installed: Python >=3.7, a C++
@@ -40,6 +42,7 @@ outputs.
 ```sh
 pip install -r requirements.txt
 ```
+-->
 
 ## Citing ParEval
 
