@@ -7,6 +7,7 @@ Welcome to the PPoPP Contest on LLM-based Parallel Programming (LLM4PP @ PPoPP 2
 * [Problem Definition](#problem-definition)
 * [Starting Toolkit](#starting-toolkit)
 * [Submission Guidelines](#submission-guidelines)
+* [Scoring](#scoring)
 * [References](#references)
 * [Contact](#contact)
   
@@ -73,6 +74,9 @@ For each problem, submit a python file similar to `model_eval/evaluation.py` whi
 For the first problem of using closed-source LLMs, please make sure that the costs incurred by running the script are reasonable. Specifics will be released at a later date.
 
 For the second problem of using open-source LLMs, please make sure that the code can be run on a single reasonably-sized GPU. Specifics will be released at a later date.
+
+## Scoring
+We provide an interface to [ParEval](https://github.com/parallelcodefoundry/ParEval) to test your implementation for both problems. However, your actual score will be based on our in-house Speedcode benchmark suite. We will release details about the benchmark suite soon.
 
 ## References
 1. [Gpt-4 technical report](https://arxiv.org/abs/2303.08774)
