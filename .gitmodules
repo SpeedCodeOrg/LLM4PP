@@ -1,3 +1,0 @@
-[submodule "model_eval/ParEval"]
-	path = model_eval/ParEval
-	url = https://github.com/ryandeng1/ParEval.git

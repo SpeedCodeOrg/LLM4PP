@@ -7,6 +7,7 @@ Welcome to the PPoPP Contest on LLM-based Parallel Programming (LLM4PP @ PPoPP 2
 * [Problem Definition](#problem-definition)
 * [Starting Toolkit](#starting-toolkit)
 * [Submission Guidelines](#submission-guidelines)
+* [Scoring](#scoring)
 * [References](#references)
 * [Contact](#contact)
   
@@ -47,7 +48,7 @@ The task is code optimization. Given a piece of source code in C++, you are aske
 
 ## Starting Toolkit
 To get started, participants are provided the starting toolkit, which is this github repository. It contains two directories.
-(1) `model_eval` which includes code for evaluating your submission on the ParEval benchmark.
+(1) `model_eval` which includes code for evaluating your submission on the (ParEval)[https://github.com/parallelcodefoundry/ParEval] benchmark.
 (2) `model_finetune` which includes sample code for finetuning an open-source LLM.
 
 <!--
@@ -68,11 +69,14 @@ See this [README](model_finetune/README.md) for how to run a finetuning script o
 See this [README](model_eval/README.md) for how to run a sample evaluation script on closed-source LLMs from OpenAI.
 
 ## Submission Guidelines
-For each phase, submit a python file similar to `model_eval/evaluation.py` which is described in more detail [README](model_eval/README.md). If using open-source models, please also upload them to HuggingFace and make them public.
+For each problem, submit a python file similar to `model_eval/evaluation.py` which is described in more detail [README](model_eval/README.md). If using open-source models, please also upload them to HuggingFace and make them public.
 
-For the first phase of using closed-source LLMs, please make sure that the costs incurred by running the script are reasonable. Specifics will be released at a later date.
+For the first problem of using closed-source LLMs, please make sure that the costs incurred by running the script are reasonable. Specifics will be released at a later date.
 
-For the second phase of using open-source LLMs, please make sure that the code can be run on a single reasonably-sized GPU. Specifics will be released at a later date.
+For the second problem of using open-source LLMs, please make sure that the code can be run on a single reasonably-sized GPU. Specifics will be released at a later date.
+
+## Scoring
+We provide an interface to [ParEval](https://github.com/parallelcodefoundry/ParEval) to test your implementation for both problems. However, your actual score will be based on our in-house Speedcode benchmark suite. We will release details about the benchmark suite soon.
 
 ## References
 1. [Gpt-4 technical report](https://arxiv.org/abs/2303.08774)
@@ -84,3 +88,4 @@ For the second phase of using open-source LLMs, please make sure that the code c
 * Xuhao Chen, cxh@mit.edu 
 * Ryan Deng, ryandeng@mit.edu
 * Tim Kaler, tfk@mit.edu
+

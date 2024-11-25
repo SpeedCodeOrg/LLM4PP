@@ -39,3 +39,4 @@ accelerate launch --config_file fsdp_config.yaml sft_code_opt.py \
     --logging_steps 1 \
     --bf16 True \
 ```
+
