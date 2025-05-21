@@ -1,0 +1,11 @@
+# Default parameters
+benchmark: ParEval
+mode: serial
+
+
+# Default logging configuration
+logging:
+  version: 1
+  loggers:
+    main_logger:
+      level: INFO

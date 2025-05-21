@@ -1,0 +1,8 @@
+benchmark: ParEval
+mode: serial
+logging:
+  version: 1
+  loggers:
+    main_logger:
+      level: INFO
+_target_: strategies.evaluation_vllm.run

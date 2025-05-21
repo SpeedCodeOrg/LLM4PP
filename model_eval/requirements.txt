@@ -1,4 +1,0 @@
-openai
-prettytable
-pydantic
-vllm

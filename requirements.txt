@@ -1,0 +1,6 @@
+openai
+prettytable
+pydantic
+vllm
+hydra-core
+jsonlines

@@ -1,0 +1,9 @@
+benchmark: ParEval
+mode: serial
+localhost: queue-g6e12xlarge-dy-g6e12xlarge-1
+logging:
+  version: 1
+  loggers:
+    main_logger:
+      level: INFO
+_target_: strategies.simple.run

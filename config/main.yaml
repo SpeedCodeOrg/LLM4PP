@@ -1,0 +1,4 @@
+# configs/main.yaml
+defaults:
+  - base
+  - strategy@_global_: evaluation_vllm
