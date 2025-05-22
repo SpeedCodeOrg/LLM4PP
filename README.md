@@ -46,7 +46,7 @@ ParEval consists of 12 problem categories (fft, graph, geometry etc.) with 5 pro
 The code that runs ParEval evaluation is in: `clients/pareval_client.py`. How it runs is as follows.
 
 * The client reads in source code which is currently defined in: `ParEval-PolyBench-Code-Opt/prompts/pareval_code_opt.json` for ParEval, under the field: `src_code`.
-  * The source code for each problem is obtained by taking a combination of the prompt located in `ParEval/prompts/raw/` and the baseline code `baseline.hpp` located in `ParEval/drivers/cpp/benchmarks`.
+  * The source code for each problem is obtained by taking a combination of the prompt located in `ParEval/prompts/raw/` and the baseline code `baseline.hpp` located in `ParEval-PolyBench-Code-Opt/drivers/cpp/benchmarks`.
 * The client will then take in the optimized code provided by you, and save it in a format compatible with ParEval's benchmarking platform.
 * The client then runs the code in `ParEval/drivers` to obtain relevant information such as if the code compiled, if the code is correct, and the runtime of the code.
 
@@ -56,9 +56,9 @@ In `client/pareval_client.py`, there are a number of settings that are currently
 
 ## PolyBench Evaluation
 
+PolyBench contains 30 numerical tasks with static control flows from domains like linear algebra, image processing, physics, and statistics
 The code that runs PolyBench evaluation is in: `clients/polybench_client.py`. 
-
-TODO
+* The baseline codes `baseline.hpp` are located in `ParEval-PolyBench-Code-Opt/drivers/cpp/benchmark/polybench`
 
 ### Problem Sizes
 The `problem-sizes.json` file determines the size of the input for each problem when benchmarking. Making this larger for some problems that require parallelism is recommended so that the overhead of parallelism does not dominate.
