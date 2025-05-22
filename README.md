@@ -1,6 +1,6 @@
 # Introduction
 
-This is the repository for `c++` code optimization benchmark, modified from ParEval and PolyBench. It contains problems from both benchmarks. Currently, we only support two modes: serial and OpenMP.
+This repo contains a `c++` code optimization benchmark for LLMs, modified from the ParEval and PolyBench benchmarks. It uses problems from both benchmarks. Currently, we only support two modes: serial and OpenMP on the CPU.
 
 # Setup
 
@@ -8,7 +8,7 @@ This is the repository for `c++` code optimization benchmark, modified from ParE
 Create a conda environment. We tested on an environment with `python = 3.11`.
 * Run `conda create -n code-opt-bench python=3.11 -y`.
 * Then `conda activate code-opt-bench`.
-* Install a `C++` compiler using the command: `conda install -c conda-forge cxx-compiler`.
+* Install a `C++` compiler using the command: `conda install -c conda-forge cxx-compiler`. The C++ compiler must support C++20.
 * Run `pip install -r requirements.txt`.
 
 ## Setup Benchmark
@@ -49,7 +49,7 @@ The code that runs ParEval evaluation is in: `clients/pareval_client.py`. How it
 * The client reads in source code which is currently defined in: `ParEval-PolyBench-Code-Opt/prompts/pareval_code_opt.json` for ParEval, under the field: `src_code`.
   * The source code for each problem is obtained by taking a combination of the prompt located in `ParEval/prompts/raw/` and the baseline code `baseline.hpp` located in `ParEval-PolyBench-Code-Opt/drivers/cpp/benchmarks`.
 * The client will then take in the optimized code provided by you, and save it in a format compatible with ParEval's benchmarking platform.
-* The client then runs the code in `ParEval/drivers` to obtain relevant information such as if the code compiled, if the code is correct, and the runtime of the code.
+* The client then runs the code in `ParEval/drivers` to obtain relevant information such as if the code compiled, if the code is correct, and the runtime of the code. The code is benchmarked using Nanobench, located [here](https://github.com/martinus/nanobench), to obtain stable and consistent results.
 
 Note: some changes to the source code, such as changing the names of structs and function names may cause the code to fail the ParEval benchmark. Refer to the `ParEval/drivers` directory to see how the benchmark is run.
 
@@ -83,6 +83,8 @@ We also record the percentage of problems such the optimized code reach a speedu
 What you will submit is a file similar to the various versions of `evaluation.py` that we have provided. You are given a list of problems, and then asked to produce optimized code for each of the problems. We will be running the code that you submit on our end.
 
 ## Additional Information
-For more information, there is documentation in the `ParEval` directory here, which is a slightly modified version of the official `ParEval` benchmark located [here](https://github.com/parallelcodefoundry/ParEval) to support code optimization.
+For more information, there is documentation in the `ParEval` directory here, which is a slightly modified version of the official ParEval benchmark. The PolyBench benchmark has been adapted to fit within the format the ParEval benchmark uses.
+
+The official `ParEval` benchmark is located [here](https://github.com/parallelcodefoundry/ParEval) , and the official `PolyBench` benchmark is located [here](https://github.com/MatthiasJReisinger/PolyBenchC-4.2.1/tree/master).
 
 If you have any questions, please do not hesitate to contact us.
