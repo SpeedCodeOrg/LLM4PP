@@ -1,1 +1,3 @@
 _target_: strategies.evaluation_vllm.run
+
+model: Qwen/Qwen2.5-Coder-14B-Instruct

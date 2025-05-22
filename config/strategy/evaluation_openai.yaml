@@ -1,0 +1,3 @@
+_target_: strategies.evaluation_openai.run
+
+model: gpt-4o

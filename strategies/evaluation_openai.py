@@ -1,7 +1,8 @@
 from client.models import LLM4PP_Problem, LLM4PP_Submission
 from client.pareval_client import ParEvalDriver
 from client.polybench_client import PolyBenchDriver
-from vllm import LLM, SamplingParams
+from fastcoder.chatapi import MessageHistory, ChatAPI
+
 from openai import OpenAI
 import json
 import hydra
@@ -43,29 +44,29 @@ def run(cfg: DictConfig) -> None:
     else: #serial
         additional_package = ""
 
-    savename = f"simple-qwen14b_benchmark-{benchmark}_mode-{mode}"
+    #model = "gpt-4o"
+    model = cfg.model
+    chatAPI = ChatAPI()
+
+    savename = f"openai-{model}-{benchmark}_mode-{mode}"
     os.makedirs("evaluator_results", exist_ok=True)
     evaluator_save_path = f"evaluator_results/{savename}.jsonl"
+    logger.info(f"Evaluating `{model}`")
     logger.info(f"Results will be saved at `{evaluator_save_path}`")
-
-    #MODEL_PATH = "Qwen/Qwen2.5-Coder-14B-Instruct"
-    MODEL_PATH = cfg.model
-    llm = LLM(model=MODEL_PATH)
-    sampling_params = SamplingParams(temperature=0.2, top_p=0.95, max_tokens=2048)
     
     for problem in enumerate_resume(driver, evaluator_save_path):
         problem : LLM4PP_Problem
         logger.info(problem.problem_id)
+        messages = MessageHistory()
         
         prompt = generate_code_opt_prompt_code(problem.source_code, additional_package=additional_package)
         logger.debug("Prompt: ")
         logger.debug(prompt)
         
-        output = llm.generate(prompt, sampling_params)
+        messages.add_message("user", prompt)
         
-        optimized_code = output[0].outputs[0].text
-        
-        optimized_code = clean_output(response=optimized_code)
+        response = chatAPI.get_response(model, messages, json_format=False)
+        optimized_code = clean_output(response)
 
         logger.debug("Optimized Code: ")
         logger.debug(optimized_code)
