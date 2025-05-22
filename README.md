@@ -6,7 +6,8 @@ This is the repository for `c++` code optimization benchmark, modified from ParE
 
 ## Installation
 Create a conda environment. We tested on an environment with `python = 3.11`.
-* Run `conda create -n LLM4PP python=3.11 -y`.
+* Run `conda create -n code-opt-bench python=3.11 -y`.
+* Then `conda activate code-opt-bench`.
 * Install a `C++` compiler using the command: `conda install -c conda-forge cxx-compiler`.
 * Run `pip install -r requirements.txt`.
 
