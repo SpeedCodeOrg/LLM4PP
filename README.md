@@ -1,6 +1,6 @@
 # Introduction
 
-This is the repository for `c++` code optimization benchmark, modified from ParEval and PolyBench. It contains problems from both benchmarks. Currently, we only support two modes: serial and OpenMP.
+This repo contains a `c++` code optimization benchmark for LLMs, modified from the ParEval and PolyBench benchmarks. It uses problems from both benchmarks. Currently, we only support two modes: serial and OpenMP on the CPU.
 
 # Installation
 
@@ -8,7 +8,7 @@ This is the repository for `c++` code optimization benchmark, modified from ParE
 Create a conda environment. We tested on an environment with `python = 3.11`.
 * Run `conda create -n code-opt-bench python=3.11 -y`.
 * Then `conda activate code-opt-bench`.
-* Install a `C++` compiler using the command: `conda install -c conda-forge cxx-compiler`.
+* Install a `C++` compiler using the command: `conda install -c conda-forge cxx-compiler`. The C++ compiler must support C++20.
 * Run `pip install -r requirements.txt`.
 
 ## Setup Benchmark
