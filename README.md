@@ -81,11 +81,11 @@ The settings of timeout and OpenMP threads are located in `client/pareval_client
 The results of different evaluation metrics are directly printed in the `stdout`. The optimized codes are saved in the `evaluator_results` folder.
 
 The metrics are the following:
-* ** compile **: percentage of compiled optimized programs.
-* ** correctness **: percentage of correct optimized programs.
-* ** geomean speedup **: geometric mean of speedup.
-* ** mean speedup **: mean of speedup.
-* ** speedup>=2 **: percentage of optimized programs than has speedup greater or equal to 2.
+* **compile**: percentage of compiled optimized programs.
+* **correctness**: percentage of correct optimized programs.
+* **geomean speedup**: geometric mean of speedup.
+* **mean speedup**: mean of speedup.
+* **speedup>=2**: percentage of optimized programs than has speedup greater or equal to 2.
 
 # Custom Evaluation Implementation
 
