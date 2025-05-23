@@ -182,7 +182,7 @@ class LLM4PP_Driver:
             all_statistics.summation += speedup
 
         table = PrettyTable()
-        table.field_names = ["category", "% compiled", "correctness", "geomean speedup", "mean speedup", "speedup>=2"]
+        table.field_names = ["category", "compiled", "correctness", "geomean speedup", "mean speedup", "speedup>=2"]
         table.float_format = '.2'
         for category in category_statistics.keys():
             table.add_row([category,\
