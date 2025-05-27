@@ -1,7 +1,7 @@
 from client.models import LLM4PP_Problem, LLM4PP_Submission
 from client.pareval_client import ParEvalDriver
 from client.polybench_client import PolyBenchDriver
-from fastcoder.chatapi import MessageHistory, ChatAPI
+from utils.chatapi import MessageHistory, ChatAPI
 
 from openai import OpenAI
 import json
