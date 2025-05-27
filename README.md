@@ -75,7 +75,7 @@ Similarly, for the OpenMP mode:
 mode=OpenMP
 ```
 
-## Choose a logging option
+## Choose a Logging Option
 To only see default information in `stdout`, use the following configuration:
 
 ```
